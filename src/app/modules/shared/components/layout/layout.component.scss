@@ -1,0 +1,120 @@
+:host {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.sidenav-container {
+  height: 100%;
+  mat-sidenav.sidenav {
+    width: 250px;
+    background: inherit;
+    border: none;
+    overflow: hidden;
+  }
+}
+
+mat-toolbar {
+  background: inherit;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  img.logo {
+    @apply transition-all duration-[.2s] ease-out pointer-events-none;
+  }
+}
+mat-sidenav-content {
+  mat-toolbar {
+    display: flex;
+    align-items: center;
+    span.spacer {
+      flex: 1;
+    }
+    mat-icon {
+      @apply text-gray-500;
+      &.downloading {
+        @apply rotate-180;
+      }
+    }
+  }
+}
+.nav-list-wrapper {
+  @apply rounded-tr-[40px] h-[calc(100vh-64px)] bg-primaryBlue overflow-hidden;
+  mat-nav-list {
+    @apply h-full pl-3 pt-5 overflow-hidden;
+    scrollbar-gutter: stable;
+    &:hover {
+      overflow-y: auto;
+    }
+    mat-list-item {
+      @apply h-max py-[1.75px] my-3 opacity-100;
+
+      mat-icon {
+        @apply ml-0 bg-transparent h-11 w-11 rounded-[50%] flex items-center justify-center;
+        &.extension {
+          @apply -rotate-[40deg];
+        }
+      }
+      &.active {
+        @apply bg-[#7C96FE] rounded-l-3xl;
+
+        mat-icon {
+          @apply text-white;
+          background: rgb(255, 255, 255);
+          background: -moz-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(238, 242, 248, 1) 0%,
+            rgba(191, 208, 229, 1) 26%,
+            rgba(183, 202, 226, 1) 60%,
+            rgba(255, 255, 255, 0) 96%
+          );
+          background: -webkit-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(238, 242, 248, 1) 0%,
+            rgba(191, 208, 229, 1) 26%,
+            rgba(183, 202, 226, 1) 60%,
+            rgba(255, 255, 255, 0) 96%
+          );
+          background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(238, 242, 248, 1) 0%,
+            rgba(191, 208, 229, 1) 26%,
+            rgba(183, 202, 226, 1) 60%,
+            rgba(255, 255, 255, 0) 96%
+          );
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+        }
+      }
+      * {
+        @apply text-primaryGray;
+      }
+    }
+    div.btn-wrapper {
+      @apply flex flex-col gap-3 mb-4 mx-2;
+
+      button.new-profile {
+        @apply bg-white rounded-[20px] py-4 px-6 shadow-sm shadow-gray-900 text-primaryBlue;
+      }
+      button.purchase-proxy {
+        @apply bg-transparent text-primaryGray;
+      }
+    }
+  }
+  div.plan-card {
+    background: rgba(159, 176, 245, 0.685);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.7px);
+    -webkit-backdrop-filter: blur(6.7px);
+    @apply border mx-1 border-primaryGray py-3 px-4 mt-3 text-white text-[0.9rem];
+    li {
+      @apply mb-1 flex items-center justify-between;
+      button.upgrade {
+        @apply bg-primaryOrange p-1;
+      }
+    }
+  }
+}

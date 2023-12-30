@@ -1,0 +1,110 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>
+      <img
+        src="assets/icons/logo-full.png"
+        alt="logo"
+        width="192"
+        height="32"
+        class="logo"
+      />
+    </mat-toolbar>
+    <div class="nav-list-wrapper">
+      <mat-nav-list>
+        <div class="btn-wrapper">
+          <button mat-button class="new-profile">
+            <mat-icon>add</mat-icon> New Profile
+          </button>
+
+          <button mat-button class="purchase-proxy">
+            <mat-icon>shopping_cart</mat-icon> Purchase proxy
+          </button>
+        </div>
+        <mat-list-item
+          routerLink="/home/browser-profile"
+          routerLinkActive="active"
+        >
+          <mat-icon matListItemIcon class="mat-18">tune</mat-icon>
+          <div matListItemTitle>Browser Profile</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListItemIcon class="mat-18">dns</mat-icon>
+          <div matListItemTitle>Proxy Service</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListItemIcon class="mat-18 extension"
+            >extension</mat-icon
+          >
+          <div matListItemTitle>Extension</div>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon matListItemIcon class="mat-18">people</mat-icon>
+          <div matListItemTitle>Team</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListItemIcon class="mat-18">view_in_ar</mat-icon>
+          <div matListItemTitle>Resource Center</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListItemIcon class="mat-18">payment</mat-icon>
+          <div matListItemTitle>Cost Center</div>
+        </mat-list-item>
+        <div class="plan-card">
+          <ul>
+            <li>
+              <span>Plan</span>
+              <button class="upgrade">Upgrade</button>
+            </li>
+            <li>
+              <span>Browser Profiles:</span>
+              <span>0/2</span>
+            </li>
+            <li>
+              <span>Member:</span>
+              <span>1/2</span>
+            </li>
+            <li>
+              <span>Number of startup:</span>
+              <span>0/20</span>
+            </li>
+          </ul>
+        </div>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="nav">
+      @if (isHandset$ | async) {
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      }
+      <span class="spacer"></span>
+      <div class="flex items-center gap-2">
+        <button mat-icon-button>
+          <mat-icon class="downloading">downloading</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon fontSet="material-icons-outlined">headphones</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon fontSet="material-icons-outlined">notifications</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>
