@@ -4,12 +4,19 @@
   -ms-user-select: none;
 }
 .sidenav-container {
+  @apply bg-bodyGray;
   height: 100%;
   mat-sidenav.sidenav {
     width: 250px;
     background: inherit;
     border: none;
     overflow: hidden;
+  }
+}
+mat-sidenav-content {
+  @apply px-4;
+  button.support {
+    @apply fixed bottom-[10%] text-white border-2 border-white right-[4%] text-3xl bg-primaryBlue w-16 h-16;
   }
 }
 
@@ -36,23 +43,44 @@ mat-sidenav-content {
         @apply rotate-180;
       }
     }
+    button.profile-btn {
+      @apply bg-transparent flex items-center gap-2 p-2 rounded-md text-[0.85rem] transition-all ease-out duration-[.5s];
+      &:hover {
+        @apply bg-gray-200 transition-all ease-linear duration-[.5s];
+      }
+      div {
+        @apply p-1 rounded-[50%] flex items-center justify-center bg-primaryBlue;
+        mat-icon {
+          @apply text-white;
+        }
+      }
+    }
   }
 }
 .nav-list-wrapper {
-  @apply rounded-tr-[40px] h-[calc(100vh-64px)] bg-primaryBlue overflow-hidden;
+  @apply rounded-tr-[40px] py-7 pl-4 h-[calc(100vh-64px)] bg-primaryBlue overflow-hidden;
   mat-nav-list {
-    @apply h-full pl-3 pt-5 overflow-hidden;
+    @apply h-[45%] overflow-auto pl-4;
     scrollbar-gutter: stable;
     &:hover {
       overflow-y: auto;
     }
     mat-list-item {
-      @apply h-max py-[1.75px] my-3 opacity-100;
+      @apply h-max py-[1.75px] my-1 opacity-100;
+      &:first-of-type {
+        @apply mt-0;
+      }
+      &:last-of-type {
+        @apply mb-0;
+      }
 
       mat-icon {
         @apply ml-0 bg-transparent h-11 w-11 rounded-[50%] flex items-center justify-center;
         &.extension {
           @apply -rotate-[40deg];
+        }
+        &.bonus {
+          @apply text-primaryOrange;
         }
       }
       &.active {
@@ -92,15 +120,19 @@ mat-sidenav-content {
         @apply text-primaryGray;
       }
     }
-    div.btn-wrapper {
-      @apply flex flex-col gap-3 mb-4 mx-2;
+  }
+  div.btn-wrapper {
+    @apply flex flex-col gap-3 mb-4 mx-4;
 
-      button.new-profile {
-        @apply bg-white rounded-[20px] py-4 px-6 shadow-sm shadow-gray-900 text-primaryBlue;
-      }
-      button.purchase-proxy {
-        @apply bg-transparent text-primaryGray;
-      }
+    button.new-profile {
+      @apply bg-white rounded py-4 px-6 shadow-sm shadow-gray-900 text-primaryBlue;
+    }
+    button.bulk-import {
+      @apply border border-primaryGray;
+    }
+    button.purchase-proxy,
+    button.bulk-import {
+      @apply bg-transparent text-primaryGray;
     }
   }
   div.plan-card {
@@ -109,7 +141,7 @@ mat-sidenav-content {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.7px);
     -webkit-backdrop-filter: blur(6.7px);
-    @apply border mx-1 border-primaryGray py-3 px-4 mt-3 text-white text-[0.9rem];
+    @apply border mx-4 border-primaryGray py-3 px-4 mt-[15%] text-white text-[0.9rem];
     li {
       @apply mb-1 flex items-center justify-between;
       button.upgrade {
