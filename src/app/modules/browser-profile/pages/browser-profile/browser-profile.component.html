@@ -1,0 +1,32 @@
+<div class="overflow-hidden">
+  <div class="overflow-auto mb-3">
+    <div class="nav-wrapper">
+      <h3 class="col-span-2 text-lg md:text-xl font-bold">Browser Profile</h3>
+      <input type="text" placeholder="Search" class="search" />
+      <button mat-stroked-button class="col-span-1">
+        <mat-icon fontSet="material-icons-outlined">filter_alt</mat-icon>Filter
+      </button>
+      <button mat-stroked-button class="col-span-2">
+        <mat-icon fontSet="material-icons-outlined">workspaces</mat-icon>Group
+        management
+      </button>
+      <button mat-stroked-button class="col-span-2">
+        <mat-icon class="bookmark" fontSet="material-icons-outlined"
+          >bookmarks</mat-icon
+        >Bookmark
+      </button>
+      <button mat-stroked-button class="col-span-1">
+        <mat-icon fontSet="material-icons-outlined">terminal</mat-icon>API
+      </button>
+      <div class="col-span-2 flex items-center gap-1">
+        <button mat-stroked-button class="upgrade">
+          <mat-icon class="upload">downloading</mat-icon>Upgrade package
+        </button>
+        <button mat-icon-button>
+          <mat-icon>sync</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <app-browser-profile-table />
+</div>

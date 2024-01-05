@@ -1,0 +1,21 @@
+.nav-wrapper {
+  @apply grid grid-cols-12 gap-3 place-items-center text-[0.75rem] text-darkBlue justify-items-center overflow-auto w-max lg:w-full;
+  input.search {
+    @apply px-3 py-2 border outline-none border-primaryGray rounded-md col-span-2 w-full;
+  }
+  button[mat-stroked-button] {
+    @apply w-full bg-white;
+    mat-icon {
+      @apply hidden lg:flex;
+    }
+    &.upgrade {
+      @apply bg-primaryBlue text-white flex-1;
+      mat-icon {
+        @apply text-white;
+      }
+    }
+  }
+  mat-icon {
+    @apply text-gray-500;
+  }
+}
