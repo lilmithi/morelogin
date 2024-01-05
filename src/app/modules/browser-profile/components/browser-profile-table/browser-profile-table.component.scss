@@ -1,0 +1,28 @@
+table {
+  .mat-mdc-header-row {
+    @apply bg-[#f1f1f1];
+  }
+  tbody {
+    tr {
+      &:hover {
+        @apply bg-gray-100;
+      }
+    }
+  }
+  td,
+  th {
+    @apply text-center min-w-[200px];
+  }
+  mat-icon {
+    @apply text-primaryGray;
+  }
+  button.start {
+    @apply px-6 border py-2 border-primaryBlue text-primaryBlue rounded-md;
+    &:hover {
+      @apply bg-transparent;
+    }
+  }
+}
+.wrapper {
+  @apply min-h-[60vh];
+}
