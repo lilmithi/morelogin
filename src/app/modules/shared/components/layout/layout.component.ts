@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { RouterModule } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-layout',
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule,
     MatToolbarModule,
+    MatMenuModule,
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
